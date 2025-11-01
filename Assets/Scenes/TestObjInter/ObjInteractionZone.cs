@@ -28,19 +28,25 @@ public class ObjInteractionZone : MonoBehaviour
 
     bool FindObjectInList(GameObject obj, List<GameObject> list) {
         for(int i = 0; i < list.Count; i++) {
-            if(list[i] == obj) { //If object is equal
+            if(list[i] == obj) {
                 return true;
             }
         }
-
         return false;
     }
 
     public void OutlineOn(GameObject obj) {
+        if(obj.GetComponent<Outline>() == null) {
+            var outline = obj.AddComponent<Outline>();
 
+            outline.OutlineMode = Outline.Mode.OutlineAll;
+            outline.OutlineColor = Color.white;
+            outline.OutlineWidth = 10f;    
+        }
+        obj.GetComponent<Outline>().enabled = true;
     }
 
     public void OutlineOff(GameObject obj) {
-
+        obj.GetComponent<Outline>().enabled = false;
     }
 }
