@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
+    public static ObjectManager Instance;
     List<PathFollower> pathFollowers = new List<PathFollower>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Instance = this;
         pathFollowers = GetComponentsInChildren<PathFollower>().ToList();
     }
 
@@ -18,7 +20,7 @@ public class ObjectManager : MonoBehaviour
         
     }
 
-    void OnFlipUnder()
+    public void OnFlipUnder()
     {
         foreach (var obj in pathFollowers)
         {
@@ -26,7 +28,7 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
-    void OnFlipUp()
+    public void OnFlipUp()
     {
         foreach (var obj in pathFollowers)
         {

@@ -44,15 +44,30 @@ public class WorldManager : MonoBehaviour
 
         // _animator.Play("FlipTo");
 
-        if(!_flipping) StartCoroutine(FlipAsync());
+        if (!_flipping)
+        {
+            StartCoroutine(FlipAsync());
+            
+            if(transform.eulerAngles.z < 90 || transform.eulerAngles.z > 270)
+            {
+                //flipping to down world
+                ObjectManager.Instance.OnFlipUnder();
+            }
+            else
+            {
+                //flipping to up world
+                ObjectManager.Instance.OnFlipUp();
+            }
+        }
+        
 
     }
     
-    IEnumerator FlipAsync()
+    IEnumerator FlipAsync(bool foward = true)
     {
         _flipping = true;
-        float angle = 180;
-        float duration = 1f;
+        float angle = 180 * (foward ? 1 : -1);
+        float duration = 0.5f;
         float elapsed = 0f;
         Vector3 originalRotation = transform.eulerAngles;
         Vector3 playerPos = Player.Instance.transform.position;
@@ -66,7 +81,8 @@ public class WorldManager : MonoBehaviour
         {
             float step = angle * (Time.deltaTime / duration);
             //rotate around Player position
-            transform.RotateAround(rotCenter, Vector3.forward, step);
+            if(foward) transform.RotateAround(rotCenter, Vector3.forward, step);
+            else transform.RotateAround(rotCenter, Vector3.forward, -step);
             // transform.Rotate(Vector3.forward, step);
             elapsed += Time.deltaTime;
             yield return null;

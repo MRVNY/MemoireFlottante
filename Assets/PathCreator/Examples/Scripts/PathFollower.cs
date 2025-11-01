@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace PathCreation.Examples
 {
@@ -40,7 +41,24 @@ namespace PathCreation.Examples
         
         public void OnFlipUnder()
         {
-            currentSpeed = 0;
+            //slow down to 0
+            StartCoroutine(SlowDown());
+        }
+        
+        IEnumerator SlowDown()
+        {
+            float startSpeed = currentSpeed;
+            float endSpeed = 0.5f;
+            float duration = 0.5f;
+            float t = 0;
+            while (t < duration)
+            {
+                t += Time.deltaTime;
+                currentSpeed = Mathf.Lerp(startSpeed, endSpeed, t / duration);
+                yield return null;
+            }
+
+            currentSpeed = endSpeed;
         }
 
         public void OnFlipUp()
