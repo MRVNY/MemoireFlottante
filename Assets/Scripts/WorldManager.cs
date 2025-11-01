@@ -59,7 +59,7 @@ public class WorldManager : MonoBehaviour
                 {
                     //flipping to down world
                     ObjectManager.Instance.OnFlipUnder();
-                    postProcessingVolume.gameObject.SetActive(true);
+                    // postProcessingVolume.gameObject.SetActive(true);
                 }
             }
         }
@@ -104,7 +104,12 @@ public class WorldManager : MonoBehaviour
 
         if (_isDown)
         {
+            postProcessingVolume.gameObject.SetActive(true);
             StartCoroutine(CountSeconds());
+        }
+        else
+        {
+            postProcessingVolume.gameObject.SetActive(false);
         }
     }
     
@@ -114,7 +119,7 @@ public class WorldManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         _isDown = false;
         ObjectManager.Instance.OnFlipUp();
-        postProcessingVolume.gameObject.SetActive(false);
+        // postProcessingVolume.gameObject.SetActive(false);
         StartCoroutine(FlipAsync(false));
     }
     
