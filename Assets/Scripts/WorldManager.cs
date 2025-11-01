@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class WorldManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class WorldManager : MonoBehaviour
     
     private bool _flipping = false;
     private bool _isDown = false;
+    
+    [SerializeField] private Volume postProcessingVolume;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -56,19 +59,9 @@ public class WorldManager : MonoBehaviour
                 {
                     //flipping to down world
                     ObjectManager.Instance.OnFlipUnder();
+                    postProcessingVolume.gameObject.SetActive(true);
                 }
             }
-            
-            // if(transform.eulerAngles.z < 90 || transform.eulerAngles.z > 270)
-            // {
-            //     //flipping to down world
-            //     ObjectManager.Instance.OnFlipUnder();
-            // }
-            // else
-            // {
-            //     //flipping to up world
-            //     ObjectManager.Instance.OnFlipUp();
-            // }
         }
         
 
@@ -121,6 +114,7 @@ public class WorldManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         _isDown = false;
         ObjectManager.Instance.OnFlipUp();
+        postProcessingVolume.gameObject.SetActive(false);
         StartCoroutine(FlipAsync(false));
     }
     
