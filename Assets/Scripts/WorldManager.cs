@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -21,6 +22,9 @@ public class WorldManager : MonoBehaviour
     private bool _isDown = false;
     
     [SerializeField] private Volume postProcessingVolume;
+    [SerializeField] private TextMeshProUGUI counter;
+    
+    public int secondsDown = 5;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,7 +40,9 @@ public class WorldManager : MonoBehaviour
     void Update()
     {
         //on f click flip the world input player settings
-        if(!_isDown && (Keyboard.current.fKey.wasPressedThisFrame || Gamepad.current.yButton.wasPressedThisFrame))
+        if(!_isDown && 
+           ((Keyboard.current!=null && Keyboard.current.fKey.wasPressedThisFrame) || 
+            (Gamepad.current!=null && Gamepad.current.yButton.wasPressedThisFrame)))
         {
             Flip();
         }
@@ -105,22 +111,41 @@ public class WorldManager : MonoBehaviour
         if (_isDown)
         {
             postProcessingVolume.gameObject.SetActive(true);
-            StartCoroutine(CountSeconds());
+            StartCoroutine(DecreaseSeconds());
+            _isDown = false;
         }
         else
         {
             postProcessingVolume.gameObject.SetActive(false);
+            StartCoroutine(IncreaseSeconds());
+            _isDown = true;
         }
     }
     
-    IEnumerator CountSeconds()
+    IEnumerator DecreaseSeconds()
     {
+        counter.color = Color.red;
+        for (int i = 0; i < secondsDown; i++)
+        {
+            counter.text = (secondsDown - i).ToString();
+            yield return new WaitForSeconds(1f);
+        }
+        counter.color = Color.grey;
         
-        yield return new WaitForSeconds(5f);
-        _isDown = false;
         ObjectManager.Instance.OnFlipUp();
         // postProcessingVolume.gameObject.SetActive(false);
         StartCoroutine(FlipAsync(false));
+    }
+
+    IEnumerator IncreaseSeconds()
+    {
+        float interval = 2f / secondsDown;
+        for (int i = 0; i < secondsDown; i++)
+        {
+            counter.text = (i + 1).ToString();
+            yield return new WaitForSeconds(interval);
+        }
+        counter.color = Color.white;
     }
     
     
