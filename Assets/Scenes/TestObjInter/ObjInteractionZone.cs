@@ -8,6 +8,12 @@ public class ObjInteractionZone : MonoBehaviour
     
     //The objects being in the area are stored in the list 
     public List<GameObject> areaObjList = new List<GameObject>();
+    private TextAppearInteraction tAppInt;
+
+    void Start() {
+        tAppInt = gameObject.GetComponent<TextAppearInteraction>();
+    }
+    
 
     void OnTriggerEnter(Collider coll)
     {
@@ -15,6 +21,7 @@ public class ObjInteractionZone : MonoBehaviour
             GameObject obj = coll.gameObject;
             areaObjList.Add(obj);
             OutlineOn(obj);
+            tAppInt.ShowObjText(obj);
             Debug.Log("Object in interaction");
         }
     }
@@ -23,6 +30,7 @@ public class ObjInteractionZone : MonoBehaviour
         GameObject obj = coll.gameObject;
         areaObjList.Remove(obj);
         OutlineOff(obj);
+        Destroy(GameObject.Find(obj.name+"Text"));
         Debug.Log("object none interaction");
     }
 
@@ -35,7 +43,7 @@ public class ObjInteractionZone : MonoBehaviour
         return false;
     }
 
-    public void OutlineOn(GameObject obj) {
+    private void OutlineOn(GameObject obj) {
         if(obj.GetComponent<Outline>() == null) {
             var outline = obj.AddComponent<Outline>();
 
@@ -46,7 +54,7 @@ public class ObjInteractionZone : MonoBehaviour
         obj.GetComponent<Outline>().enabled = true;
     }
 
-    public void OutlineOff(GameObject obj) {
+    private void OutlineOff(GameObject obj) {
         obj.GetComponent<Outline>().enabled = false;
     }
 }
