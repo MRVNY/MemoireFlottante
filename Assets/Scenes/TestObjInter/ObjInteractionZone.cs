@@ -22,7 +22,6 @@ public class ObjInteractionZone : MonoBehaviour
             areaObjList.Add(obj);
             OutlineOn(obj);
             tAppInt.ShowObjText(obj);
-            Debug.Log("Object in interaction");
         }
     }
 
@@ -31,7 +30,6 @@ public class ObjInteractionZone : MonoBehaviour
         areaObjList.Remove(obj);
         OutlineOff(obj);
         Destroy(GameObject.Find(obj.name+"Text"));
-        Debug.Log("object none interaction");
     }
 
     bool FindObjectInList(GameObject obj, List<GameObject> list) {
