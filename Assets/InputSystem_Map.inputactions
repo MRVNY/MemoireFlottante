@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "name": "InputSystem_Actions",
+    "name": "InputSystem_Map",
     "maps": [
         {
             "name": "Player",
@@ -82,15 +82,6 @@
                     "name": "Sprint",
                     "type": "Button",
                     "id": "641cd816-40e6-41b4-8c3d-04687c349290",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Flip",
-                    "type": "Button",
-                    "id": "7f81743c-ad0e-43aa-8e81-f73777c329b6",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -480,28 +471,6 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Crouch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b43ac9d2-237e-4fd4-9e1a-998e90a69a0a",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Flip",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cbb1c4bc-0989-478d-afde-47a648bb8e71",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Flip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

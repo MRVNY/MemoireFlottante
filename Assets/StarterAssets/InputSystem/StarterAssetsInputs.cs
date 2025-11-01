@@ -19,6 +19,9 @@ namespace StarterAssets
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
+		
+		// [Header("Flip Input")]
+		// public bool flip;
 
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
@@ -43,6 +46,11 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+		
+		// public void OnFlip(InputValue value)
+		// {
+		// 	FlipInput(value.isPressed);
+		// }
 #endif
 
 
@@ -65,6 +73,11 @@ namespace StarterAssets
 		{
 			sprint = newSprintState;
 		}
+		
+		// public void FlipInput(bool newFlipState)
+		// {
+		// 	flip = newFlipState;
+		// }
 
 		private void OnApplicationFocus(bool hasFocus)
 		{
