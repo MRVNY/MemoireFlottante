@@ -159,6 +159,12 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            
+            // if(_input.flip)
+            // {
+            //     print("Flip");
+            //     WorldManager.Instance.Flip();
+            // }
         }
 
         private void LateUpdate()
