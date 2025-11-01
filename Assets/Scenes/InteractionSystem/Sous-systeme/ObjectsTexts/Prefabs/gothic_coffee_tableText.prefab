@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4727232623361791105}
   - component: {fileID: 3812477939103434275}
   m_Layer: 0
-  m_Name: obj_0Text
+  m_Name: gothic_coffee_tableText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
