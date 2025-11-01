@@ -54,6 +54,10 @@ public class WorldManager : MonoBehaviour
         float angle = 180;
         float duration = 1f;
         float elapsed = 0f;
+        Vector3 originalRotation = transform.eulerAngles;
+        Vector3 playerPos = Player.Instance.transform.position;
+        Vector3 rotCenter = new Vector3(playerPos.x, playerPos.y, 0);
+        Player.Instance.SwitchFlip(true);
         
         _upWorldCollider.enabled = false;
         _downWorldCollider.enabled = false;
@@ -61,16 +65,19 @@ public class WorldManager : MonoBehaviour
         while (elapsed < duration)
         {
             float step = angle * (Time.deltaTime / duration);
-            transform.Rotate(Vector3.forward, step);
+            //rotate around Player position
+            transform.RotateAround(rotCenter, Vector3.forward, step);
+            // transform.Rotate(Vector3.forward, step);
             elapsed += Time.deltaTime;
             yield return null;
         }
         // Ensure final rotation is exact
-        transform.Rotate(Vector3.forward, angle - (elapsed - duration) * (angle / duration));
+        transform.eulerAngles = originalRotation + new Vector3(0, 0, angle);
         
         _upWorldCollider.enabled = true;
         _downWorldCollider.enabled = true;
         _flipping = false;
+        Player.Instance.SwitchFlip(false);
     }
     
     
