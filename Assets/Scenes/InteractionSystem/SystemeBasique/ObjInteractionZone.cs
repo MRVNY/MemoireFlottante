@@ -13,6 +13,7 @@ public class ObjInteractionZone : MonoBehaviour
     //The objects being in the area are stored in the list 
     public List<GameObject> areaObjList = new List<GameObject>();
     private GameObject currentObj = null;
+    private PathFollower currentPathFollower = null;
     private TextAppearInteraction tAppInt;
     
     private bool interacting = false;
@@ -54,6 +55,7 @@ public class ObjInteractionZone : MonoBehaviour
         if (targetCollider == null) targetCollider = coll.transform.parent.GetComponent<PathFollower>();
         // print("parent " + targetCollider.gameObject.name);
         if(targetCollider!=null){ 
+            currentPathFollower = targetCollider;
             print("Valid Entered by " + targetCollider.gameObject.name);
             GameObject obj = targetCollider.gameObject;
             areaObjList.Add(obj);
@@ -111,7 +113,10 @@ public class ObjInteractionZone : MonoBehaviour
 
     private void Interaction(GameObject obj) {
         // gameObject.GetComponent<TextUIInteraction>().ShowTextUI(obj);
-        Info.Instance.OnShowInfo(obj.GetComponentInChildren<PathFollower>().story);
+        PathFollower follower = obj.GetComponent<PathFollower>();
+        if (follower == null) follower = obj.transform.parent.GetComponent<PathFollower>();
+        
+        Info.Instance.OnShowInfo(follower.story);
         interacting = true;
         //Animation
         // GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(interactionSoundClip, 1.0f);

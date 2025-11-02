@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/FlipTest.unity
-    guid: 96b0a95233ed44ddaa011732437a388c
+    path: Assets/Scenes/TitleScreen.unity
+    guid: 2874483dfbe454ce3b3e9be1c368901c
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 867744d4fe7c1c846b04852354ce268c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

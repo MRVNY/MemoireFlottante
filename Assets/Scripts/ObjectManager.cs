@@ -36,4 +36,9 @@ public class ObjectManager : MonoBehaviour
         }
     }
     
+    public int CountPathFollowers()
+    {
+        return pathFollowers.Count;
+    }
+    
 }
