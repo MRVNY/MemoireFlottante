@@ -15,6 +15,11 @@ public class WorldManager : MonoBehaviour
     [SerializeField] private World upWorld;
     [SerializeField] private World downWorld;
     
+    [SerializeField] private AudioClip UpMusic;
+    [SerializeField] private AudioClip DownMusic;
+    private float _musicProgress = 0f;
+    private AudioSource _audioSource;
+    
     private MeshCollider _upWorldCollider;
     private MeshCollider _downWorldCollider;
     
@@ -34,6 +39,7 @@ public class WorldManager : MonoBehaviour
         _upWorldCollider = upWorld.GetComponent<MeshCollider>();
         _downWorldCollider = downWorld.GetComponent<MeshCollider>();
         _input = GetComponent<PlayerInput>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -74,6 +80,9 @@ public class WorldManager : MonoBehaviour
             
             // color adjustment
             postProcessingVolume.weight = Mathf.Clamp01(elapsed / duration * (foward ? 1 : -1));
+            
+            //music pitch adjustment 1 to 0
+            _audioSource.pitch = Mathf.Clamp01(1 - (elapsed / duration));
                 
             // transform.Rotate(Vector3.forward, step);
             elapsed += Time.deltaTime;
@@ -91,17 +100,28 @@ public class WorldManager : MonoBehaviour
         _flipping = false;
         Player.Instance.SwitchFlip(false);
 
+        _audioSource.pitch = 1f;
         if (_isDown)
         {
             // postProcessingVolume.gameObject.SetActive(true);
             StartCoroutine(IncreaseSeconds());
             _isDown = false;
+
+            _musicProgress = _audioSource.time;
+            _audioSource.clip = UpMusic;
+            _audioSource.time = _musicProgress % _audioSource.clip.length;
+            _audioSource.Play();
         }
         else
         {
             // postProcessingVolume.gameObject.SetActive(false);
             StartCoroutine(DecreaseSeconds());
             _isDown = true;
+            
+            _musicProgress = _audioSource.time;
+            _audioSource.clip = DownMusic;
+            _audioSource.time = _musicProgress % _audioSource.clip.length;
+            _audioSource.Play();
         }
     }
     
