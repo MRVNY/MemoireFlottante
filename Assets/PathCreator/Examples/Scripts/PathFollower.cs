@@ -83,12 +83,12 @@ namespace PathCreation.Examples
             currentSpeed = speed;
         }
 
-        // private void OnTriggerEnter(Collider other)
-        // {
-        //     if(other.GetComponent<ObjInteractionZone>() != null)
-        //     {
-        //         other.GetComponent<ObjInteractionZone>().Interaction(gameObject);
-        //     }
-        // }
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.GetComponent<ObjInteractionZone>() != null)
+            {
+                // other.GetComponent<ObjInteractionZone>().Interaction(gameObject);
+            }
+        }
     }
 }
