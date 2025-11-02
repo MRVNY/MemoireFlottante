@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Info : MonoBehaviour
@@ -17,7 +18,12 @@ public class Info : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if p clicked
+        if ((Keyboard.current != null && Keyboard.current.pKey.wasPressedThisFrame) ||
+            (Gamepad.current != null && Gamepad.current.startButton.wasPressedThisFrame))
+        {
+            SceneManager.LoadScene("EndScreen");
+        }
     }
     
     public void OnShowInfo(string text)
