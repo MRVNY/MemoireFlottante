@@ -18,12 +18,11 @@ public class ObjInteractionZone : MonoBehaviour
 
     void Update() {
         if((Keyboard.current!=null && Keyboard.current.eKey.wasPressedThisFrame) || 
-            (Gamepad.current!=null && Gamepad.current.yButton.wasPressedThisFrame)) //ChangeButton
+            (Gamepad.current!=null && Gamepad.current.xButton.wasPressedThisFrame)) 
         {
             Interaction(areaObjList[0]);
             Debug.Log("E pressed");
-        }
-        
+        }     
     }
 
     void OnTriggerEnter(Collider coll)

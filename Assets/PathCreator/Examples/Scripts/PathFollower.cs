@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace PathCreation.Examples
 {
@@ -12,6 +14,8 @@ namespace PathCreation.Examples
         public float speed = 5;
         private float currentSpeed;
         float distanceTravelled;
+
+        public string story;
         
         Vector3 randomRotation;
 
@@ -69,7 +73,7 @@ namespace PathCreation.Examples
         {
             while (true)
             {
-                transform.Rotate(randomRotation * Time.deltaTime);
+                transform.Rotate(randomRotation * Time.deltaTime / 10f);
                 yield return null;
             }
         }
@@ -78,5 +82,13 @@ namespace PathCreation.Examples
         {
             currentSpeed = speed;
         }
+
+        // private void OnTriggerEnter(Collider other)
+        // {
+        //     if(other.GetComponent<ObjInteractionZone>() != null)
+        //     {
+        //         other.GetComponent<ObjInteractionZone>().Interaction(gameObject);
+        //     }
+        // }
     }
 }
