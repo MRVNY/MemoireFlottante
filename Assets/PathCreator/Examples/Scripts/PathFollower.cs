@@ -69,7 +69,7 @@ namespace PathCreation.Examples
         {
             while (true)
             {
-                transform.Rotate(randomRotation * Time.deltaTime);
+                transform.Rotate(randomRotation * Time.deltaTime / 10f);
                 yield return null;
             }
         }
