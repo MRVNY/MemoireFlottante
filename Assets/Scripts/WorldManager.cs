@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -21,6 +22,9 @@ public class WorldManager : MonoBehaviour
     private bool _isDown = false;
     
     [SerializeField] private Volume postProcessingVolume;
+    [SerializeField] private TextMeshProUGUI counter;
+    
+    public int secondsDown = 5;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,35 +40,14 @@ public class WorldManager : MonoBehaviour
     void Update()
     {
         //on f click flip the world input player settings
-        if(!_isDown && (Keyboard.current.fKey.wasPressedThisFrame || Gamepad.current.yButton.wasPressedThisFrame))
+        if(!_isDown && !_flipping &&
+           ((Keyboard.current!=null && Keyboard.current.fKey.wasPressedThisFrame) || 
+            (Gamepad.current!=null && Gamepad.current.yButton.wasPressedThisFrame)))
         {
-            Flip();
+            StartCoroutine(FlipAsync());
+            ObjectManager.Instance.OnFlipUnder();
         }
         
-    }
-
-    public void Flip()
-    {
-
-        // _animator.Play("FlipTo");
-
-        if (!_flipping)
-        {
-            if (!_isDown)
-            {
-                _isDown = true;
-                StartCoroutine(FlipAsync());
-                
-                if(transform.eulerAngles.z < 90 || transform.eulerAngles.z > 270)
-                {
-                    //flipping to down world
-                    ObjectManager.Instance.OnFlipUnder();
-                    // postProcessingVolume.gameObject.SetActive(true);
-                }
-            }
-        }
-        
-
     }
     
     IEnumerator FlipAsync(bool foward = true)
@@ -88,6 +71,10 @@ public class WorldManager : MonoBehaviour
             float step = angle * (Time.deltaTime / duration);
             //rotate around Player position
             transform.RotateAround(rotCenter, rotDic, step);
+            
+            // color adjustment
+            postProcessingVolume.weight = Mathf.Clamp01(elapsed / duration * (foward ? 1 : -1));
+                
             // transform.Rotate(Vector3.forward, step);
             elapsed += Time.deltaTime;
             yield return null;
@@ -95,6 +82,8 @@ public class WorldManager : MonoBehaviour
         // Ensure final rotation is exact
         transform.eulerAngles = originalRotation + new Vector3(0, 0, angle);
         transform.position = new Vector3(playerPos.x, 0, playerPos.z);
+        
+        postProcessingVolume.weight = foward ? 1 : 0;
         
         
         _upWorldCollider.enabled = true;
@@ -104,23 +93,41 @@ public class WorldManager : MonoBehaviour
 
         if (_isDown)
         {
-            postProcessingVolume.gameObject.SetActive(true);
-            StartCoroutine(CountSeconds());
+            // postProcessingVolume.gameObject.SetActive(true);
+            StartCoroutine(IncreaseSeconds());
+            _isDown = false;
         }
         else
         {
-            postProcessingVolume.gameObject.SetActive(false);
+            // postProcessingVolume.gameObject.SetActive(false);
+            StartCoroutine(DecreaseSeconds());
+            _isDown = true;
         }
     }
     
-    IEnumerator CountSeconds()
+    IEnumerator DecreaseSeconds()
     {
+        counter.color = Color.red;
+        for (int i = 0; i < secondsDown; i++)
+        {
+            counter.text = (secondsDown - i).ToString();
+            yield return new WaitForSeconds(1f);
+        }
+        counter.color = Color.grey;
         
-        yield return new WaitForSeconds(5f);
-        _isDown = false;
         ObjectManager.Instance.OnFlipUp();
-        // postProcessingVolume.gameObject.SetActive(false);
         StartCoroutine(FlipAsync(false));
+    }
+
+    IEnumerator IncreaseSeconds()
+    {
+        float interval = 2f / secondsDown;
+        for (int i = 0; i < secondsDown; i++)
+        {
+            counter.text = (i + 1).ToString();
+            yield return new WaitForSeconds(interval);
+        }
+        counter.color = Color.white;
     }
     
     
