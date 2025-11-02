@@ -88,6 +88,7 @@ namespace PathCreation.Examples
             if(other.GetComponent<ObjInteractionZone>() != null)
             {
                 // other.GetComponent<ObjInteractionZone>().Interaction(gameObject);
+                
             }
         }
     }
