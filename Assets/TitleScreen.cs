@@ -33,7 +33,7 @@ public class TitleScreen : MonoBehaviour
 
     public void OnStartClicked()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Intro");
     }
 
     public void OnCreditsClicked()

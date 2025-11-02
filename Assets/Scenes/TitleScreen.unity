@@ -1435,6 +1435,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creditsPanel: {fileID: 334188226}
+  titleVideo: {fileID: 0}
+  startVideo: {fileID: 0}
 --- !u!1 &1282615443
 GameObject:
   m_ObjectHideFlags: 0
