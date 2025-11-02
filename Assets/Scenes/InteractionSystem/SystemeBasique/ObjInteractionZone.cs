@@ -25,7 +25,6 @@ public class ObjInteractionZone : MonoBehaviour
         }
         
     }
-    
 
     void OnTriggerEnter(Collider coll)
     {
@@ -71,7 +70,7 @@ public class ObjInteractionZone : MonoBehaviour
     private void Interaction(GameObject obj) {
         gameObject.GetComponent<TextUIInteraction>().ShowTextUI(obj);
         //Animation
-        GameObject.Find("MainCamera").GetComponent<AudioSource>().PlayOneShot(interactionSoundClip, 1.0f);
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(interactionSoundClip, 1.0f);
         Destroy(obj);
     }
 }
