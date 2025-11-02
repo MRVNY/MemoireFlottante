@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.bnco.unity-webgl-microphone": "https://github.com/bnco-dev/unity-webgl-microphone.git",
     "com.unity.ai.navigation": "2.0.9",
     "com.unity.burst": "1.8.25",
     "com.unity.cinemachine": "3.1.5",
