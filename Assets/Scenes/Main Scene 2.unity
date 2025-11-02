@@ -348,7 +348,9 @@ MonoBehaviour:
   pathCreator: {fileID: 920633997}
   endOfPathInstruction: 0
   speed: 10
-  story: 
+  story: "La bouilloire de maman. Chaque matin, elle faisait chauffer l\u2019eau
+    pour son th\xE9. J\u2019aimais rester l\xE0, \xE0 \xE9couter le bruit de l\u2019eau
+    qui bout. "
 --- !u!4 &126853633 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8718778828885884488, guid: e5f4daf24146ee040b5a2d7a73b30aa0, type: 3}
@@ -2552,6 +2554,7 @@ Transform:
   - {fileID: 1327588897}
   - {fileID: 1603928049}
   - {fileID: 1016226167}
+  - {fileID: 1189808669}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &501882954
@@ -2736,7 +2739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4281871068747207730, guid: 9155f0e04f155ba45b8e8d0c68051535, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.92
+      value: -11.71
       objectReference: {fileID: 0}
     - target: {fileID: 4281871068747207730, guid: 9155f0e04f155ba45b8e8d0c68051535, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2868,7 +2871,8 @@ MonoBehaviour:
   pathCreator: {fileID: 1425860900}
   endOfPathInstruction: 0
   speed: 5
-  story: 
+  story: "Ma bo\xEEte \xE0 musique pr\xE9f\xE9r\xE9e. Je croyais qu\u2019en l\u2019\xE9coutant
+    avant de dormir, je ferais de beaux r\xEAves. "
 --- !u!4 &577285577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8718778828885884488, guid: e5f4daf24146ee040b5a2d7a73b30aa0, type: 3}
@@ -5011,6 +5015,93 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8718778828885884488, guid: e5f4daf24146ee040b5a2d7a73b30aa0, type: 3}
   m_PrefabInstance: {fileID: 954587034}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &955579123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 955579124}
+  - component: {fileID: 955579125}
+  m_Layer: 0
+  m_Name: GothicTablePath
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &955579124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955579123}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.96, y: 1.61, z: -54.42}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1189808669}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &955579125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955579123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorData:
+    _bezierPath:
+      points:
+      - {x: -2.5750446, y: 0.85460675, z: 3.9158363}
+      - {x: -1.5750446, y: 1.3546069, z: 3.9158363}
+      - {x: 37.448967, y: 1.1502589, z: -12.537373}
+      - {x: 38.448967, y: 1.6502589, z: -12.537373}
+      - {x: 40.23782, y: 2.5446863, z: -12.537373}
+      - {x: -4.363899, y: -0.039820433, z: 3.9158363}
+      isClosed: 1
+      space: 0
+      controlMode: 0
+      autoControlLength: 0.3
+      boundsUpToDate: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+      perAnchorNormalsAngle:
+      - 0
+      - 0
+      globalNormalsAngle: 0
+      flipNormals: 0
+    vertexPathUpToDate: 1
+    vertexPathMaxAngleError: 0.3
+    vertexPathMinVertexSpacing: 0.01
+    showTransformTool: 1
+    showPathBounds: 1
+    showPerSegmentBounds: 0
+    displayAnchorPoints: 1
+    displayControlPoints: 1
+    bezierHandleScale: 1
+    globalDisplaySettingsFoldout: 0
+    keepConstantHandleSize: 1
+    showNormalsInVertexMode: 0
+    showBezierPathInVertexMode: 0
+    showDisplayOptions: 1
+    showPathOptions: 1
+    showVertexPathDisplayOptions: 0
+    showVertexPathOptions: 1
+    showNormals: 1
+    showNormalsHelpInfo: 0
+    tabIndex: 0
+  initialized: 1
 --- !u!1001 &963478377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5717,7 +5808,7 @@ Transform:
   m_GameObject: {fileID: 1061211598}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.3256851, y: -0.10444088, z: 1.9992939}
+  m_LocalPosition: {x: 1.3256851, y: -0.062, z: 1.9992939}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5822,7 +5913,8 @@ MonoBehaviour:
   pathCreator: {fileID: 1954842403}
   endOfPathInstruction: 0
   speed: 5
-  story: 
+  story: "La table du jardin... Papa l\u2019aimait beaucoup. Quand il pleuvait, il
+    la rentrait toujours \xE0 l\u2019int\xE9rieur."
 --- !u!1 &1119626054
 GameObject:
   m_ObjectHideFlags: 0
@@ -6498,12 +6590,46 @@ MonoBehaviour:
   pathCreator: {fileID: 0}
   endOfPathInstruction: 0
   speed: 5
-  story: 
+  story: "L\u2019horloge du salon. Je me rappelle qu\u2019elle se tenait juste \xE0
+    c\xF4t\xE9 de la t\xE9l\xE9vision. "
 --- !u!4 &1184043808 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2382810566493446626, guid: 7b846d8f536f007498c941069487ce81, type: 3}
   m_PrefabInstance: {fileID: 9195182876599114070}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1189808668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1189808669}
+  m_Layer: 0
+  m_Name: GothicTable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1189808669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189808668}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1511976694}
+  - {fileID: 955579124}
+  m_Father: {fileID: 501882953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1195842817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6676,6 +6802,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1016226167}
     m_Modifications:
+    - target: {fileID: 5292776311011096912, guid: 08e593a355b1a5c46a7554b102225b2c, type: 3}
+      propertyPath: story
+      value: "La chaise de maman. Elle adorait le rose, alors je l\u2019avais peinte
+        moi-m\xEAme. Mais ces marques vertes... d\u2019o\xF9 viennent-elles ?"
+      objectReference: {fileID: 0}
     - target: {fileID: 5292776311011096912, guid: 08e593a355b1a5c46a7554b102225b2c, type: 3}
       propertyPath: pathCreator
       value: 
@@ -8453,6 +8584,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1511976694 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5108854960744005897, guid: 0474a48388329e343876b208437be93a, type: 3}
+  m_PrefabInstance: {fileID: 1608021564}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1520202655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8819,7 +8955,8 @@ MonoBehaviour:
   pathCreator: {fileID: 2060288648}
   endOfPathInstruction: 0
   speed: 20
-  story: 
+  story: " Oh, la tasse que j\u2019avais achet\xE9e avec maman. Le petit c\u0153ur
+    sur le c\xF4t\xE9, c\u2019est moi qui l\u2019avais dessin\xE9."
 --- !u!1 &1603928048
 GameObject:
   m_ObjectHideFlags: 0
@@ -8853,6 +8990,72 @@ Transform:
   - {fileID: 1954842402}
   m_Father: {fileID: 501882953}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1608021564
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1189808669}
+    m_Modifications:
+    - target: {fileID: 5108854960744005897, guid: 0474a48388329e343876b208437be93a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.892784
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108854960744005897, guid: 0474a48388329e343876b208437be93a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108854960744005897, guid: 0474a48388329e343876b208437be93a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108854960744005897, guid: 0474a48388329e343876b208437be93a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108854960744005897, guid: 0474a48388329e343876b208437be93a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108854960744005897, guid: 0474a48388329e343876b208437be93a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108854960744005897, guid: 0474a48388329e343876b208437be93a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108854960744005897, guid: 0474a48388329e343876b208437be93a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108854960744005897, guid: 0474a48388329e343876b208437be93a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108854960744005897, guid: 0474a48388329e343876b208437be93a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5597301608621005747, guid: 0474a48388329e343876b208437be93a, type: 3}
+      propertyPath: m_Name
+      value: gothic_coffee_table
+      objectReference: {fileID: 0}
+    - target: {fileID: 6118180388172525177, guid: 0474a48388329e343876b208437be93a, type: 3}
+      propertyPath: story
+      value: "Ah, ma table de chevet. Mais qu\u2019est-ce que j\u2019avais mis dans
+        le tiroir, d\xE9j\xE0 ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6118180388172525177, guid: 0474a48388329e343876b208437be93a, type: 3}
+      propertyPath: pathCreator
+      value: 
+      objectReference: {fileID: 955579125}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0474a48388329e343876b208437be93a, type: 3}
 --- !u!1 &1614304623
 GameObject:
   m_ObjectHideFlags: 0
@@ -9008,6 +9211,11 @@ PrefabInstance:
     - target: {fileID: 5501974616177938846, guid: 7aa692335ecd7704eba377d6a6da5de1, type: 3}
       propertyPath: speed
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501974616177938846, guid: 7aa692335ecd7704eba377d6a6da5de1, type: 3}
+      propertyPath: story
+      value: "On dirait le r\xE9veil de ma chambre d\u2019enfant... mais pourquoi
+        semble-t-il si vieux, maintenant ?"
       objectReference: {fileID: 0}
     - target: {fileID: 5501974616177938846, guid: 7aa692335ecd7704eba377d6a6da5de1, type: 3}
       propertyPath: pathCreator
