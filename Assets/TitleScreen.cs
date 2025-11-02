@@ -3,7 +3,9 @@ using UnityEngine.InputSystem;
 
 public class TitleScreen : MonoBehaviour
 {
-    [SerializeField] GameObject creditsPanel; 
+    [SerializeField] GameObject creditsPanel;
+    [SerializeField] private GameObject titleVideo;
+    [SerializeField] private GameObject startVideo;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -89,8 +89,10 @@ public class WorldManager : MonoBehaviour
             yield return null;
         }
         // Ensure final rotation is exact
-        transform.eulerAngles = originalRotation + new Vector3(0, 0, angle);
-        transform.position = new Vector3(playerPos.x, 0, playerPos.z);
+        //make sure the plane is horizontal
+        
+        transform.eulerAngles = new Vector3((foward ? 180 : 0), transform.eulerAngles.y + (foward ? 180 : 0));
+        // transform.position = new Vector3(playerPos.x, 0, playerPos.z);
         
         postProcessingVolume.weight = foward ? 1 : 0;
         

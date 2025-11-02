@@ -12,6 +12,8 @@ namespace PathCreation.Examples
         public float speed = 5;
         private float currentSpeed;
         float distanceTravelled;
+        
+        Vector3 randomRotation;
 
         void Start() {
             if (pathCreator != null)
@@ -21,6 +23,8 @@ namespace PathCreation.Examples
             }
             
             currentSpeed = speed;
+            randomRotation = new Vector3(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f));
+            StartCoroutine(Rotate());
         }
 
         void Update()
@@ -29,7 +33,7 @@ namespace PathCreation.Examples
             {
                 distanceTravelled += currentSpeed * Time.deltaTime;
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-                transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+                // transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
             }
         }
 
@@ -59,6 +63,15 @@ namespace PathCreation.Examples
             }
 
             currentSpeed = endSpeed;
+        }
+
+        IEnumerator Rotate()
+        {
+            while (true)
+            {
+                transform.Rotate(randomRotation * Time.deltaTime);
+                yield return null;
+            }
         }
 
         public void OnFlipUp()
