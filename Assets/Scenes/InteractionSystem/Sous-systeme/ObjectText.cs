@@ -12,7 +12,7 @@ public class ObjectText : MonoBehaviour
     void Start() {
         Vector3 gaps = new Vector3(textGapX, textGapY, textGapZ);
         gameObject.transform.position = parentObj.transform.position + gaps;
-        mainCameraTs = GameObject.Find("MainCamera").transform;
+        mainCameraTs = GameObject.Find("Main Camera").transform;
     }
 
     void Update()

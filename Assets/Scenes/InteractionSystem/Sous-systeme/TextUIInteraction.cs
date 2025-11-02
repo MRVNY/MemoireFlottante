@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class TextUIInteraction : MonoBehaviour
 {
+    //This script shows off the text Image objects after picking up an object
+
     public List<GameObject> TextImages = new List<GameObject>();
     public float appearWaitTime = 5f; //In seconds
     

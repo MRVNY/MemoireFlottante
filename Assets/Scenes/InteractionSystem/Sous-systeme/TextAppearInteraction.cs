@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class TextAppearInteraction : MonoBehaviour
 {
+    //This script spawns off the short texts about the object before even interacting, by Instantiate.
     public List<GameObject> objTexts = new List<GameObject>();
 
     public void ShowObjText(GameObject obj) {
