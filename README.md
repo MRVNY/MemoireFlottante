@@ -21,3 +21,5 @@ Pouvoir : Y / F
 
 Interaction : X / E
 
+Video demo: https://m.youtube.com/watch?v=sMz-mnQ5Rlc&t=6s&pp=2AEGkAIB
+
