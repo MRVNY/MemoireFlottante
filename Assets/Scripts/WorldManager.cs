@@ -92,7 +92,7 @@ public class WorldManager : MonoBehaviour
         //make sure the plane is horizontal
         
         transform.eulerAngles = new Vector3((foward ? 180 : 0), transform.eulerAngles.y + (foward ? 180 : 0));
-        // transform.position = new Vector3(playerPos.x, 0, playerPos.z);
+        transform.position = new Vector3(playerPos.x, 0, playerPos.z);
         
         postProcessingVolume.weight = foward ? 1 : 0;
         
